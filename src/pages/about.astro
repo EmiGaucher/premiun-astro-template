@@ -1,0 +1,77 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+
+import { siteConfig } from "@/config/site";
+
+const stats = [
+  { label: "Community", value: "5k+" },
+  { label: "Components", value: "20+" },
+  { label: "Templates", value: "1+" },
+  { label: "Updates", value: "Weekly" },
+];
+---
+
+<BaseLayout title={`About Us - ${siteConfig.name}`} description={`Learn more about the team and mission behind ${siteConfig.name}.`}>
+
+  <Navbar />
+  
+  <main class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center mb-20">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Our mission is to empower developers</h1>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          At {siteConfig.name}, we believe that building beautiful, high-performance websites should be accessible to everyone. We're dedicated to creating tools that bridge the gap between design and development.
+        </p>
+
+
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
+        <div class="bg-muted rounded-3xl aspect-[4/3] flex items-center justify-center p-8 overflow-hidden group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-1/2 h-1/2 text-primary opacity-20 group-hover:scale-110 transition-transform duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Built by creators, for creators</h2>
+          <p class="text-muted-foreground mb-6 leading-relaxed">
+            This project started as a collection of professional Astro components used specifically for SaaS development. We realized that many other developers were facing the same challenges we were: spending too much time on boilerplate and not enough on features.
+          </p>
+
+          <p class="text-muted-foreground mb-10 leading-relaxed">
+            Since then, we've grown into a global community of developers who value speed, performance, and aesthetic excellence.
+          </p>
+          <div class="grid grid-cols-2 gap-8">
+            {stats.map((stat) => (
+              <div>
+                <div class="text-3xl font-bold text-primary">{stat.value}</div>
+                <div class="text-sm text-muted-foreground uppercase tracking-widest mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">Our Core Values</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 border border-border rounded-2xl">
+            <h3 class="font-bold text-xl mb-4">Performance First</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">We optimize every byte. Speed isn't just a feature; it's the foundation of a great user experience.</p>
+          </div>
+          <div class="p-8 border border-border rounded-2xl">
+            <h3 class="font-bold text-xl mb-4">Aesthetic Excellence</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">Design is how it works. We obsess over typography, spacing, and micro-interactions.</p>
+          </div>
+          <div class="p-8 border border-border rounded-2xl">
+            <h3 class="font-bold text-xl mb-4">Radical Simplicity</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">We remove the unnecessary so you can focus on what matters most to your users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

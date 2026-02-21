@@ -1,0 +1,83 @@
+import { siteConfig } from "@/config/site";
+
+const updates = [
+
+  {
+    version: "v1.1.0",
+    date: "March 15, 2024",
+    title: "The Performance Update",
+    changes: [
+      "Optimized hero image loading with Astro Image component",
+      "Added Preact for testimonial slider interactivity",
+      "Fixed dark mode flickering on initial load",
+      "New feature grid layout for better mobile readability",
+    ],
+    tag: "Latest",
+  },
+  {
+    version: "v1.0.0",
+    date: "February 28, 2024",
+    title: "Initial Launch",
+    changes: [
+      "Core SaaS landing page components",
+      "Blog system with MDX support",
+      "Fully responsive design and dark mode",
+      "SEO and performance optimization",
+    ],
+    tag: null,
+  },
+];
+---
+
+<BaseLayout title={`Changelog - ${siteConfig.name}`} description={`Stay up to date with the latest features and improvements to ${siteConfig.name}.`}>
+  <Navbar />
+  
+  <main class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto mb-20">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Changelog</h1>
+        <p class="text-lg text-muted-foreground">
+          Follow the evolution of the template. We're constantly working to make it the best Astro starter for your next project.
+        </p>
+      </div>
+
+      
+      <div class="max-w-3xl mx-auto space-y-16">
+        {updates.map((update) => (
+          <div class="relative pl-8 md:pl-0">
+            <!-- Timeline Line -->
+            <div class="absolute left-0 top-0 bottom-0 w-px bg-border md:hidden"></div>
+            
+            <div class="md:grid md:grid-cols-[1fr_3fr] gap-12">
+              <div class="mb-4 md:mb-0">
+                <div class="sticky top-24">
+                  <div class="text-sm font-bold text-primary uppercase tracking-widest mb-1">{update.version}</div>
+                  <div class="text-sm text-muted-foreground">{update.date}</div>
+                  {update.tag && (
+                    <span class="inline-block mt-3 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">
+                      {update.tag}
+                    </span>
+                  )}
+                </div>
+              </div>
+              
+              <div class="bg-card border border-border p-8 rounded-2xl shadow-sm">
+                <h2 class="text-2xl font-bold mb-6">{update.title}</h2>
+                <ul class="space-y-4">
+                  {update.changes.map((change) => (
+                    <li class="flex items-start gap-3 text-muted-foreground">
+                      <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
+                      {change}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

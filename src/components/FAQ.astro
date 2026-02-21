@@ -1,0 +1,48 @@
+---
+const faqs = [
+  {
+    question: "Do I get lifetime updates?",
+    answer: "Yes! Once you purchase a license, you'll receive all future updates for this template at no additional cost.",
+  },
+  {
+    question: "Can I use this for client projects?",
+    answer: "Absolutely. Our commercial license allows you to use the template for personal and professional projects, including client work.",
+  },
+  {
+    question: "Which Astro version is supported?",
+    answer: "This template is built with the latest version of Astro and is regularly updated to ensure compatibility with new releases.",
+  },
+  {
+    question: "Is there a money-back guarantee?",
+    answer: "Yes, we offer a 14-day 'no questions asked' refund policy if you're not satisfied with the product.",
+  },
+];
+
+---
+
+<section class="section-padding bg-muted/30">
+  <div class="container-custom max-w-3xl">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+      <p class="text-lg text-muted-foreground">
+        Got questions? We've got answers.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="group bg-card border border-border rounded-xl transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+            <h3 class="text-lg font-bold group-open:text-primary transition-colors">{faq.question}</h3>
+            <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:rotate-180">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-2 duration-300">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

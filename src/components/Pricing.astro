@@ -1,0 +1,79 @@
+---
+import Button from "./Button.astro";
+
+const plans = [
+  {
+    name: "Standard",
+    price: "$49",
+    description: "Everything you need to ship a professional landing page.",
+    features: ["Complete Source Code", "Responsive UI Components", "Dark Mode Support", "Basic Documentation", "Lifetime License", "Community Access"],
+    buttonText: "Buy Now",
+    variant: "outline",
+    popular: false,
+  },
+  {
+    name: "Extended",
+    price: "$129",
+    description: "Advanced features and tools for serious SaaS founders.",
+    features: ["Everything in Standard", "Premium Dashboard UI", "Advanced Animations", "Waitlist System", "Priority Support", "Email Templates", "Figma Design Files"],
+    buttonText: "Go Premium",
+    variant: "primary",
+    popular: true,
+  },
+  {
+    name: "Full Bundle",
+    price: "$299",
+    description: "The ultimate solution for agencies and serial founders.",
+    features: ["Everything in Extended", "Setup Service (1h)", "Unlimited Site License", "Custom Domain Helpers", "24/7 Priority Support", "Direct Developer Contact"],
+    buttonText: "Contact Us",
+    variant: "outline",
+    popular: false,
+  },
+];
+---
+
+<section id="pricing" class="section-padding overflow-hidden relative">
+  <!-- Background Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+  
+  <div class="container-custom">
+    <div class="text-center max-w-3xl mx-auto mb-16 px-4">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Lifetime access, one-time payment</h2>
+      <p class="text-lg text-muted-foreground">
+        Choose the license that fits your project. Pay once, use forever.
+      </p>
+    </div>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {plans.map((plan) => (
+        <div class={`relative flex flex-col p-8 bg-card border ${plan.popular ? 'border-primary ring-1 ring-primary' : 'border-border'} rounded-2xl`}>
+          {plan.popular && (
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+              Most Popular
+            </div>
+          )}
+          <div class="mb-8">
+            <h3 class="text-xl font-bold mb-2">{plan.name}</h3>
+            <div class="flex items-baseline gap-1 mt-4">
+              <span class="text-4xl font-extrabold">{plan.price}</span>
+            </div>
+
+            <p class="mt-4 text-sm text-muted-foreground">{plan.description}</p>
+          </div>
+          <ul class="flex-1 space-y-4 mb-8">
+            {plan.features.map((feature) => (
+              <li class="flex items-center gap-3 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <Button variant={plan.variant as any} class="w-full">
+            {plan.buttonText}
+          </Button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

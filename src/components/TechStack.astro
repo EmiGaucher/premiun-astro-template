@@ -1,0 +1,26 @@
+---
+const techs = [
+  { name: "Astro", icon: "🚀" },
+  { name: "Tailwind CSS", icon: "🎨" },
+  { name: "TypeScript", icon: "📘" },
+  { name: "Preact", icon: "⚛️" },
+  { name: "Lucide", icon: "✨" },
+  { name: "Vite", icon: "⚡" },
+];
+---
+
+<section class="py-12 border-y border-border/50 bg-muted/20 overflow-hidden">
+  <div class="container-custom">
+    <p class="text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-8">
+      Built with the world's fastest tech stack
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+      {techs.map((tech) => (
+        <div class="flex items-center gap-2 group cursor-default">
+          <span class="text-2xl group-hover:scale-125 transition-transform duration-300">{tech.icon}</span>
+          <span class="font-bold text-lg group-hover:text-primary transition-colors">{tech.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
