@@ -22,6 +22,27 @@ Look for the `:root` and `.dark` blocks. You can modify variables like:
 - `--primary`: The main brand color (Purple by default).
 - `--radius`: The roundness of buttons and cards.
 
+## 🔗 Linking Buttons & Menus
+
+### Buttons
+All buttons across the template use a shared component. To make a button link to a page or an external URL, simply add the `href` attribute:
+```astro
+<Button href="/your-link">Click Me</Button>
+```
+If you don't provide an `href`, it will act as a standard scientific `<button>`.
+
+### Navigation Links
+To change the links in the Header/Navbar, open:
+`src/components/Navbar.astro`
+
+Find the `navLinks` array at the top and update the titles and URLs.
+
+### Footer Links
+To update the footer sections, open:
+`src/components/Footer.astro`
+
+Modify the `footerLinks` array to organize your columns and links.
+
 ## 📄 Customizing Pages
 
 All pages are located in `src/pages/`.
